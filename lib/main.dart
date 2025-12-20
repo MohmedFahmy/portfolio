@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/mobile/landing_mobile_page.dart';
+import 'package:portfolio/web/landing_web_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const Scaffold(body: Center(child: Text('Hello, Flutter!'))),
+      home: LayoutBuilder(
+        builder: (context, constraints) {
+          if (constraints.maxWidth > 700) {
+            return LandingWebPage();
+          } else {
+            return const LandingMobilePage();
+          }
+        },
+      ),
     );
   }
 }
