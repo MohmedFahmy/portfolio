@@ -34,12 +34,16 @@ class _LandingWebPageState extends State<LandingWebPage> {
         ),
       ),
       body: CircleAvatar(
-        radius: 103,
-        backgroundColor: Colors.black,
+        radius: 146,
+        backgroundColor: Colors.tealAccent,
         child: CircleAvatar(
-          radius: 100,
-          backgroundColor: Colors.white,
-          backgroundImage: AssetImage('assets/cropped_circle_image.png'),
+          radius: 143,
+          backgroundColor: Colors.black,
+          child: CircleAvatar(
+            radius: 140,
+            backgroundColor: Colors.white,
+            backgroundImage: AssetImage('assets/cropped_circle_image.png'),
+          ),
         ),
       ),
       drawer: Drawer(),
