@@ -24,11 +24,11 @@ class _LandingWebPageState extends State<LandingWebPage> {
             const Spacer(flex: 3),
             TabsWeb('Home'),
             const Spacer(),
+            TabsWeb('About'),
+            const Spacer(),
             TabsWeb('Work'),
             const Spacer(),
             TabsWeb('Blog'),
-            const Spacer(),
-            TabsWeb('About'),
             const Spacer(),
             TabsWeb('Contact'),
             const Spacer(),
@@ -112,46 +112,115 @@ class _LandingWebPageState extends State<LandingWebPage> {
           // the Second Section
           Container(
             height: hightDevice / 1.5,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SansText(
-                  text: 'About Me',
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
+                Image(
+                  image: AssetImage('assets/web.jpg'),
+                  height: hightDevice / 1.7,
                 ),
-                SizedBox(height: 20),
-                SansText(
-                  text:
-                      'Flutter developer with experience in building cross-platform mobile applications.',
-                  fontSize: 15,
-                  fontWeight: FontWeight.normal,
-                ),
-                SansText(
-                  text:
-                      'Strong understanding of Dart and the Flutter framework, with a focus on clean and maintainable code.',
-                  fontSize: 15,
-                  fontWeight: FontWeight.normal,
-                ),
-                SansText(
-                  text:
-                      'Passionate about creating elegant and functional user interfaces that enhance user experience.',
-                  fontSize: 15,
-                  fontWeight: FontWeight.normal,
-                ),
-                SansText(
-                  text:
-                      'Keen on delivering high-quality, efficient, and scalable mobile solutions.',
-                  fontSize: 15,
-                  fontWeight: FontWeight.normal,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SansText(
+                      text: 'About Me',
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    SizedBox(height: 20),
+                    SansText(
+                      text:
+                          'Flutter developer specializing in cross-platform mobile applications.',
+                      fontSize: 15,
+                      fontWeight: FontWeight.normal,
+                    ),
+                    SansText(
+                      text:
+                          'Strong knowledge of Dart and Flutter with clean, maintainable code',
+                      fontSize: 15,
+                      fontWeight: FontWeight.normal,
+                    ),
+                    SansText(
+                      text:
+                          'Passionate about building elegant and functional user interfaces.',
+                      fontSize: 15,
+                      fontWeight: FontWeight.normal,
+                    ),
+                    SansText(
+                      text:
+                          'Focused on high-quality, scalable mobile solutions.',
+                      fontSize: 15,
+                      fontWeight: FontWeight.normal,
+                    ),
+                    SizedBox(height: 15),
+                    Row(
+                      children: [
+                        SkillWidget(skill: 'Flutter', color: Colors.tealAccent),
+                        SizedBox(width: 10),
+                        SkillWidget(skill: 'Android', color: Colors.tealAccent),
+                        SizedBox(width: 10),
+                        SkillWidget(skill: 'ios', color: Colors.tealAccent),
+                        SizedBox(width: 10),
+                        SkillWidget(skill: 'Dart', color: Colors.blueAccent),
+                      ],
+                    ),
+
+                    SizedBox(height: 10),
+                    Row(
+                      children: [
+                        SkillWidget(skill: 'Git', color: Colors.purpleAccent),
+                        SizedBox(width: 10),
+                        SkillWidget(skill: 'REST API', color: Colors.redAccent),
+                        SizedBox(width: 10),
+                        SkillWidget(
+                          skill: 'State Management',
+                          color: Colors.indigoAccent,
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      children: [
+                        SkillWidget(
+                          skill: 'Firebase',
+                          color: Colors.orangeAccent,
+                        ),
+                        SizedBox(width: 10),
+                        SkillWidget(
+                          skill: 'Supabase',
+                          color: Colors.lightGreen,
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
+          // the Third Section
         ],
       ),
       drawer: Drawer(),
+    );
+  }
+}
+
+class SkillWidget extends StatelessWidget {
+  const SkillWidget({super.key, required this.skill, required this.color});
+  final String skill;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: color, style: BorderStyle.solid, width: 2.5),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+      child: SansText(text: skill, fontSize: 16, fontWeight: FontWeight.normal),
     );
   }
 }
