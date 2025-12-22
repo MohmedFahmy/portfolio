@@ -28,7 +28,7 @@ class _TabsWebState extends State<TabsWeb> {
         duration: const Duration(milliseconds: 100),
         curve: Curves.elasticIn,
         style: isSelected
-            ? GoogleFonts.oswald(
+            ? GoogleFonts.roboto(
                 shadows: [Shadow(offset: Offset(0, -4), color: Colors.black)],
                 color: Colors.transparent,
                 fontSize: 25,
@@ -36,7 +36,7 @@ class _TabsWebState extends State<TabsWeb> {
                 decorationThickness: 1.5,
                 decorationColor: Colors.tealAccent,
               )
-            : GoogleFonts.oswald(color: Colors.grey.shade600, fontSize: 23),
+            : GoogleFonts.roboto(color: Colors.grey.shade600, fontSize: 23),
         child: Text(widget.title),
       ),
     );

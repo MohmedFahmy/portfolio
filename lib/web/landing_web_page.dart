@@ -18,6 +18,7 @@ class _LandingWebPageState extends State<LandingWebPage> {
   @override
   Widget build(BuildContext context) {
     var hightDevice = MediaQuery.of(context).size.height;
+    var widthDevice = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -254,12 +255,67 @@ class _LandingWebPageState extends State<LandingWebPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Column(children: [InputFormFiledWidget()]),
+                    Column(
+                      children: [
+                        InputFormFiledWidget(
+                          heading: 'First name',
+                          hintText: 'Please enter your first name',
+                          maxLines: 1,
+                          width: 350,
+                        ),
+                        SizedBox(height: 15),
+                        InputFormFiledWidget(
+                          heading: 'Email',
+                          hintText: 'Please enter your email address',
+                          maxLines: 1,
+                          width: 350,
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        InputFormFiledWidget(
+                          heading: 'Last name',
+                          hintText: 'please enter your last name',
+                          maxLines: 1,
+                          width: 350,
+                        ),
+                        SizedBox(height: 15),
+                        InputFormFiledWidget(
+                          heading: 'Phone number',
+                          hintText: 'Please enter your phone number',
+                          maxLines: 1,
+                          width: 350,
+                        ),
+                      ],
+                    ),
                   ],
+                ),
+                InputFormFiledWidget(
+                  heading: 'Message',
+                  hintText: 'Please enter your message',
+                  maxLines: 10,
+                  width: widthDevice / 1.5,
+                ),
+                MaterialButton(
+                  onPressed: () {},
+                  height: 60,
+                  minWidth: 200,
+                  elevation: 20.0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  color: Colors.tealAccent,
+                  child: SansText(
+                    text: 'Submit',
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ],
             ),
           ),
+          SizedBox(height: 30.0),
         ],
       ),
       drawer: Drawer(),
