@@ -31,12 +31,12 @@ class _TabsWebState extends State<TabsWeb> {
             ? GoogleFonts.roboto(
                 shadows: [Shadow(offset: Offset(0, -4), color: Colors.black)],
                 color: Colors.transparent,
-                fontSize: 25,
+                fontSize: 22.0,
                 decoration: TextDecoration.underline,
                 decorationThickness: 1.5,
                 decorationColor: Colors.tealAccent,
               )
-            : GoogleFonts.roboto(color: Colors.grey.shade600, fontSize: 23),
+            : GoogleFonts.roboto(color: Colors.grey.shade600, fontSize: 18.0),
         child: Text(widget.title),
       ),
     );

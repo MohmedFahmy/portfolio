@@ -17,6 +17,15 @@ class LandingWebPage extends StatefulWidget {
 }
 
 class _LandingWebPageState extends State<LandingWebPage> {
+  urlLauncher(String imgPath, String url) {
+    return IconButton(
+      icon: SvgPicture.asset(imgPath, width: 35),
+      onPressed: () async {
+        await launchUrl(Uri.parse(url));
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     var hightDevice = MediaQuery.of(context).size.height;
@@ -348,13 +357,14 @@ class _LandingWebPageState extends State<LandingWebPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                IconButton(
-                  icon: SvgPicture.asset('/linkedin.svg', width: 35),
-                  onPressed: () async {
-                    await launchUrl(
-                      Uri.parse('https://www.linkedin.com/in/mohamedfahmy00/'),
-                    );
-                  },
+                urlLauncher(
+                  '/linkedin.svg',
+                  'https://www.linkedin.com/in/mohamedfahmy00/',
+                ),
+                urlLauncher('/github.svg', 'https://github.com/MohmedFahmy'),
+                urlLauncher(
+                  '/facebook.svg',
+                  'https://web.facebook.com/mohamed.fahmey.7549',
                 ),
               ],
             ),
