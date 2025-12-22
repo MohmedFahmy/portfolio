@@ -219,22 +219,26 @@ class _LandingWebPageState extends State<LandingWebPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    WhatIDoWidget(
-                      title: 'Web Development',
-                      imagePath: '/webL.png',
-                      text: 'Building responsive and',
-                      subText: 'visually appealing Flutter web applications.',
-                    ),
-                    WhatIDoWidget(
-                      title: 'Mobile App Development',
+                    AnimatedCard(
                       imagePath: '/app.png',
                       text: 'Creating cross-platform mobile apps',
-                      subText: 'with Flutter for iOS and Android.',
+                      reverse: false,
+                      title: 'Mobile App Development',
+                      fit: BoxFit.contain,
                     ),
-                    WhatIDoWidget(
-                      title: 'Back-end Development',
+                    AnimatedCard(
+                      imagePath: '/webL.png',
+                      text: 'Building responsive and dynamic websites',
+                      fit: BoxFit.contain,
+                      reverse: false,
+                      title: 'Web Development',
+                    ),
+                    AnimatedCard(
                       imagePath: '/backend.png',
                       text: 'Developing robust back-end services',
+                      reverse: false,
+                      title: 'Back-end Development',
+                      fit: BoxFit.contain,
                     ),
                   ],
                 ),
