@@ -161,7 +161,7 @@ class _LandingWebPageState extends State<LandingWebPage> {
                         SizedBox(width: 10),
                         SkillWidget(skill: 'Android', color: Colors.tealAccent),
                         SizedBox(width: 10),
-                        SkillWidget(skill: 'ios', color: Colors.tealAccent),
+                        SkillWidget(skill: 'iOS', color: Colors.tealAccent),
                         SizedBox(width: 10),
                         SkillWidget(skill: 'Dart', color: Colors.blueAccent),
                       ],
@@ -213,17 +213,22 @@ class _LandingWebPageState extends State<LandingWebPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Card(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            'assets/webL.png',
-                            height: 200,
-                            width: 200,
-                          ),
-                        ],
-                      ),
+                    WhatIDoWidget(
+                      title: 'Web Development',
+                      imagePath: '/webL.png',
+                      text: 'Building responsive and',
+                      subText: 'visually appealing Flutter web applications.',
+                    ),
+                    WhatIDoWidget(
+                      title: 'Mobile App Development',
+                      imagePath: '/app.png',
+                      text: 'Creating cross-platform mobile apps',
+                      subText: 'with Flutter for iOS and Android.',
+                    ),
+                    WhatIDoWidget(
+                      title: 'Back-end Development',
+                      imagePath: '/backend.png',
+                      text: 'Developing robust back-end services',
                     ),
                   ],
                 ),
@@ -236,6 +241,62 @@ class _LandingWebPageState extends State<LandingWebPage> {
     );
   }
 }
+
+class WhatIDoWidget extends StatelessWidget {
+  const WhatIDoWidget({
+    super.key,
+    required this.title,
+    required this.imagePath,
+    required this.text,
+    this.subText, // اختياري
+  });
+
+  final String title;
+  final String imagePath;
+  final String text;
+  final String? subText;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 30,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
+      shadowColor: Colors.tealAccent,
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset(imagePath, height: 200, width: 200),
+            const SizedBox(height: 10),
+            SansText(
+              text: title,
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+            ),
+            const SizedBox(height: 5),
+            SansText(
+              text: text,
+              fontSize: 12,
+              fontWeight: FontWeight.normal,
+            ),
+
+            // 👇 يظهر فقط لو subText موجود
+            if (subText != null && subText!.isNotEmpty)
+              SansText(
+                text: subText!,
+                fontSize: 12,
+                fontWeight: FontWeight.normal,
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 
 class SkillWidget extends StatelessWidget {
   const SkillWidget({super.key, required this.skill, required this.color});
