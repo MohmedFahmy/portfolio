@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/components.dart';
 import 'package:portfolio/widgets/text_widgets.dart';
 
@@ -322,7 +323,39 @@ class _LandingWebPageState extends State<LandingWebPage> {
           SizedBox(height: 30.0),
         ],
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        backgroundColor: Colors.white,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: 72.0,
+              backgroundColor: Colors.tealAccent,
+              child: CircleAvatar(
+                radius: 70.0,
+                backgroundColor: Colors.white,
+                backgroundImage: AssetImage('/cropped_circle_image.png'),
+              ),
+            ),
+            SizedBox(height: 15.0),
+            SansText(
+              text: 'Mohamed Fahmy',
+              fontSize: 30.0,
+              fontWeight: FontWeight.bold,
+            ),
+            SizedBox(height: 25.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                IconButton(
+                  icon: SvgPicture.asset('/linkedin.svg', width: 35),
+                  onPressed: () {},
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
