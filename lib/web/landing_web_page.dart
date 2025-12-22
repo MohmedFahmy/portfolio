@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/components.dart';
 import 'package:portfolio/widgets/text_widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../widgets/icon_text_widget.dart';
 import '../widgets/input_form_filed_widget.dart';
@@ -349,7 +350,11 @@ class _LandingWebPageState extends State<LandingWebPage> {
               children: [
                 IconButton(
                   icon: SvgPicture.asset('/linkedin.svg', width: 35),
-                  onPressed: () {},
+                  onPressed: () async {
+                    await launchUrl(
+                      Uri.parse('https://www.linkedin.com/in/mohamedfahmy00/'),
+                    );
+                  },
                 ),
               ],
             ),
