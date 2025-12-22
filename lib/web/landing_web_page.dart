@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/components.dart';
 import 'package:portfolio/widgets/text_widgets.dart';
 
+import '../widgets/icon_text_widget.dart';
+import '../widgets/input_form_filed_widget.dart';
+import '../widgets/skill_widget.dart';
+import '../widgets/what_i_do_widget.dart';
+
 class LandingWebPage extends StatefulWidget {
   const LandingWebPage({super.key});
 
@@ -235,100 +240,29 @@ class _LandingWebPageState extends State<LandingWebPage> {
               ],
             ),
           ),
+          // the Fourth Section
+          Container(
+            height: hightDevice,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SansText(
+                  text: 'Contact me',
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(children: [InputFormFiledWidget()]),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
       drawer: Drawer(),
-    );
-  }
-}
-
-class WhatIDoWidget extends StatelessWidget {
-  const WhatIDoWidget({
-    super.key,
-    required this.title,
-    required this.imagePath,
-    required this.text,
-    this.subText, // اختياري
-  });
-
-  final String title;
-  final String imagePath;
-  final String text;
-  final String? subText;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 30,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      shadowColor: Colors.tealAccent,
-      child: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.asset(imagePath, height: 200, width: 200),
-            const SizedBox(height: 10),
-            SansText(
-              text: title,
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
-            ),
-            const SizedBox(height: 5),
-            SansText(
-              text: text,
-              fontSize: 12,
-              fontWeight: FontWeight.normal,
-            ),
-
-            // 👇 يظهر فقط لو subText موجود
-            if (subText != null && subText!.isNotEmpty)
-              SansText(
-                text: subText!,
-                fontSize: 12,
-                fontWeight: FontWeight.normal,
-              ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-
-class SkillWidget extends StatelessWidget {
-  const SkillWidget({super.key, required this.skill, required this.color});
-  final String skill;
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: color, style: BorderStyle.solid, width: 2.5),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-      child: SansText(text: skill, fontSize: 16, fontWeight: FontWeight.normal),
-    );
-  }
-}
-
-class IconTextWidget extends StatelessWidget {
-  const IconTextWidget({super.key, required this.icon, required this.text});
-  final IconData icon;
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(icon),
-        SizedBox(width: 10),
-        SansText(text: text, fontSize: 15, fontWeight: FontWeight.normal),
-      ],
     );
   }
 }
