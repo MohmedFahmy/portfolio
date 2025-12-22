@@ -124,7 +124,7 @@ class _LandingWebPageState extends State<LandingWebPage> {
               children: [
                 Image(
                   image: AssetImage('assets/web.jpg'),
-                  height: hightDevice / 1.7,
+                  height: widthDevice / 1.9,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
