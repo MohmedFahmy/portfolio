@@ -200,6 +200,36 @@ class _LandingWebPageState extends State<LandingWebPage> {
             ),
           ),
           // the Third Section
+          Container(
+            height: hightDevice / 1.3,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SansText(
+                  text: 'What i do?',
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Card(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            'assets/webL.png',
+                            height: 200,
+                            width: 200,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
       drawer: Drawer(),
