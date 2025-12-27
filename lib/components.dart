@@ -42,3 +42,30 @@ class _TabsWebState extends State<TabsWeb> {
     );
   }
 }
+
+// Mobile Tabs Widget
+class TabsMobil extends StatefulWidget {
+  const TabsMobil({super.key, required this.title, required this.route});
+  final String title;
+  final route;
+  @override
+  State<TabsMobil> createState() => _TabsMobilState();
+}
+
+class _TabsMobilState extends State<TabsMobil> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(
+      onPressed: () {},
+      elevation: 20.0,
+      height: 50.0,
+      minWidth: 200.0,
+      color: Colors.blueGrey.shade800,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+      child: Text(
+        widget.title,
+        style: GoogleFonts.openSans(color: Colors.white, fontSize: 20.0),
+      ),
+    );
+  }
+}
