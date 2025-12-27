@@ -10,6 +10,15 @@ class LandingMobilePage extends StatefulWidget {
 class _LandingMobilePageState extends State<LandingMobilePage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    var deviceWidth = MediaQuery.of(context).size.width;
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        iconTheme: const IconThemeData(size: 35.0, color: Colors.black),
+      ),
+      endDrawer: Drawer(),
+    );
   }
 }
