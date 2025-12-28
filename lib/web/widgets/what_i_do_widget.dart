@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/widgets/text_widgets.dart';
+import 'package:portfolio/web/widgets/text_widgets.dart';
 
 class AnimatedCard extends StatefulWidget {
   const AnimatedCard({
@@ -8,7 +8,7 @@ class AnimatedCard extends StatefulWidget {
     required this.text,
     required this.fit,
     required this.reverse,
-    required this.title,
+    required this.title, required this.height, required this.width,
   });
 
   final String imagePath;
@@ -16,6 +16,8 @@ class AnimatedCard extends StatefulWidget {
   final String text;
   final BoxFit fit;
   final bool reverse;
+  final double height;
+  final double width;
 
   @override
   State<AnimatedCard> createState() => _AnimatedCardState();
@@ -57,8 +59,8 @@ class _AnimatedCardState extends State<AnimatedCard>
             children: [
               Image.asset(
                 widget.imagePath,
-                height: 200,
-                width: 200,
+                height: widget.height,
+                width: widget.width,
                 fit: widget.fit == null ? null : widget.fit,
               ),
               const SizedBox(height: 10),

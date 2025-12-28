@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/widgets/text_widgets.dart';
+import 'package:portfolio/web/widgets/text_widgets.dart';
 
 class SkillWidget extends StatelessWidget {
   const SkillWidget({super.key, required this.skill, required this.color});

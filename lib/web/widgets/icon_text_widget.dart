@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/widgets/text_widgets.dart';
+import 'package:portfolio/web/widgets/text_widgets.dart';
 
 class IconTextWidget extends StatelessWidget {
   const IconTextWidget({super.key, required this.icon, required this.text});

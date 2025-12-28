@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/widgets/text_widgets.dart';
+import 'package:portfolio/web/widgets/text_widgets.dart';
 
 class InputFormFiledWidget extends StatelessWidget {
   const InputFormFiledWidget({

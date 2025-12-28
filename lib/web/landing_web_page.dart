@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/components.dart';
-import 'package:portfolio/widgets/text_widgets.dart';
+import 'package:portfolio/web/widgets/text_widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../widgets/icon_text_widget.dart';
-import '../widgets/input_form_filed_widget.dart';
-import '../widgets/skill_widget.dart';
-import '../widgets/what_i_do_widget.dart';
+import 'widgets/icon_text_widget.dart';
+import 'widgets/input_form_filed_widget.dart';
+import 'widgets/skill_widget.dart';
+import 'widgets/what_i_do_widget.dart';
 
 class LandingWebPage extends StatefulWidget {
   const LandingWebPage({super.key});
@@ -176,9 +176,12 @@ class _LandingWebPageState extends State<LandingWebPage> {
                       children: [
                         SkillWidget(skill: 'Flutter', color: Colors.tealAccent),
                         SizedBox(width: 10),
-                        SkillWidget(skill: 'Android', color: Colors.tealAccent),
+                        SkillWidget(
+                          skill: 'Android',
+                          color: Colors.greenAccent,
+                        ),
                         SizedBox(width: 10),
-                        SkillWidget(skill: 'iOS', color: Colors.tealAccent),
+                        SkillWidget(skill: 'iOS', color: Colors.orangeAccent),
                         SizedBox(width: 10),
                         SkillWidget(skill: 'Dart', color: Colors.blueAccent),
                       ],
@@ -236,11 +239,15 @@ class _LandingWebPageState extends State<LandingWebPage> {
                       reverse: false,
                       title: 'Mobile App Development',
                       fit: BoxFit.contain,
+                      height: 200,
+                      width: 200,
                     ),
                     AnimatedCard(
                       imagePath: '/webL.png',
                       text: 'Building responsive and dynamic websites',
                       fit: BoxFit.contain,
+                      height: 200,
+                      width: 200,
                       reverse: false,
                       title: 'Web Development',
                     ),
@@ -250,6 +257,8 @@ class _LandingWebPageState extends State<LandingWebPage> {
                       reverse: false,
                       title: 'Back-end Development',
                       fit: BoxFit.contain,
+                      height: 200,
+                      width: 200,
                     ),
                   ],
                 ),
