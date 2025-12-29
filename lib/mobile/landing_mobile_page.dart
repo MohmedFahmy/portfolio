@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/components.dart';
+import 'package:portfolio/web/widgets/input_form_filed_widget.dart';
 import 'package:portfolio/web/widgets/text_widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'widget/skills_slider.dart';
 import '../web/widgets/skill_widget.dart';
+import 'widget/skills_slider.dart';
 
 class LandingMobilePage extends StatefulWidget {
   const LandingMobilePage({super.key});
@@ -278,6 +279,72 @@ class _LandingMobilePageState extends State<LandingMobilePage> {
               ),
               SizedBox(height: 12.0),
               SkillsCarousel(),
+              SizedBox(height: 60.0),
+              // contacts section
+              Wrap(
+                runSpacing: 20.0,
+                spacing: 20.0,
+                alignment: WrapAlignment.center,
+                children: [
+                  SansText(
+                    text: 'Contact me',
+                    fontSize: 35.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  InputFormFiledWidget(
+                    heading: 'First name',
+                    hintText: 'Please enter your first name',
+                    maxLines: 1,
+                    width: deviceWidth / 1.4,
+                  ),
+                  SizedBox(height: 15),
+                  InputFormFiledWidget(
+                    heading: 'Last name',
+                    hintText: 'please enter your last name',
+                    maxLines: 1,
+                    width: deviceWidth / 1.4,
+                  ),
+                  SizedBox(height: 15),
+
+                  InputFormFiledWidget(
+                    heading: 'Email',
+                    hintText: 'Please enter your email address',
+                    maxLines: 1,
+                    width: deviceWidth / 1.4,
+                  ),
+
+                  SizedBox(height: 15),
+                  InputFormFiledWidget(
+                    heading: 'Phone number',
+                    hintText: 'Please enter your phone number',
+                    maxLines: 1,
+                    width: deviceWidth / 1.4,
+                  ),
+                  SizedBox(height: 15),
+                  InputFormFiledWidget(
+                    heading: 'Message',
+                    hintText: 'Please enter your message',
+                    maxLines: 10,
+                    width: deviceWidth / 1.4,
+                  ),
+                  MaterialButton(
+                    onPressed: () {},
+                    height: 60,
+                    minWidth: deviceWidth / 2.2,
+                    elevation: 20.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    color: Colors.tealAccent,
+                    child: SansText(
+                      text: 'Submit',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 30.0),
             ],
           ),
         ],
