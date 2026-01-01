@@ -305,14 +305,12 @@ class _LandingMobilePageState extends State<LandingMobilePage> {
                     width: deviceWidth / 1.4,
                   ),
                   SizedBox(height: 15),
-
                   InputFormFiledWidget(
                     heading: 'Email',
                     hintText: 'Please enter your email address',
                     maxLines: 1,
                     width: deviceWidth / 1.4,
                   ),
-
                   SizedBox(height: 15),
                   InputFormFiledWidget(
                     heading: 'Phone number',
