@@ -267,7 +267,7 @@ class _LandingMobilePageState extends State<LandingMobilePage> {
             ),
           ),
 
-          //the Third Section What i do
+          //the Third Section What i do & Contact me
           SizedBox(height: 100.0),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
