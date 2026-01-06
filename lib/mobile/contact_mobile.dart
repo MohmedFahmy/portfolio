@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../components.dart';
-import '../../web/widgets/input_form_filed_widget.dart';
-import '../../web/widgets/text_widgets.dart';
+import '../components.dart';
+import '../web/widgets/input_form_filed_widget.dart';
+import '../web/widgets/text_widgets.dart';
 
 class ContactMobile extends StatefulWidget {
   const ContactMobile({super.key});

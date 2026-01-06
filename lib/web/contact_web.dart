@@ -4,7 +4,7 @@ import 'package:portfolio/web/widgets/input_form_filed_widget.dart';
 import 'package:portfolio/web/widgets/text_widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../components.dart';
+import '../components.dart';
 
 class ContactWeb extends StatefulWidget {
   const ContactWeb({super.key});

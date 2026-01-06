@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/mobile/landing_mobile_page.dart';
-import 'package:portfolio/mobile/widget/contact_mobile.dart';
+import 'package:portfolio/mobile/contact_mobile.dart';
 import 'package:portfolio/web/landing_web_page.dart';
-import 'package:portfolio/web/widgets/contact_web.dart';
+import 'package:portfolio/web/contact_web.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {

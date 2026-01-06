@@ -217,6 +217,7 @@ class _LandingMobilePageState extends State<LandingMobilePage> {
                 ),
                 SizedBox(height: 20.0),
                 Wrap(
+                 
                   spacing: 10.0,
                   runSpacing: 7.0,
                   children: [
