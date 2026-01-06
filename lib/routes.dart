@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/mobile/landing_mobile_page.dart';
+import 'package:portfolio/mobile/about_mobile.dart';
 import 'package:portfolio/mobile/contact_mobile.dart';
-import 'package:portfolio/web/landing_web_page.dart';
+import 'package:portfolio/mobile/landing_mobile_page.dart';
+import 'package:portfolio/web/about_web.dart';
 import 'package:portfolio/web/contact_web.dart';
+import 'package:portfolio/web/landing_web_page.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -25,9 +27,22 @@ class Routes {
           builder: (_) => LayoutBuilder(
             builder: (context, constraints) {
               if (constraints.maxWidth > 800) {
-                return const ContactWeb();
+                return  ContactWeb();
               } else {
-                return const ContactMobile();
+                return  ContactMobile();
+              }
+            },
+          ),
+          settings: settings,
+        );
+      case '/about':
+        return MaterialPageRoute(
+          builder: (_) => LayoutBuilder(
+            builder: (context, constraints) {
+              if (constraints.maxWidth > 800) {
+                return  AboutWeb();
+              } else {
+                return  AboutMobile();
               }
             },
           ),
