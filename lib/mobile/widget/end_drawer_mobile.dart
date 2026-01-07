@@ -15,7 +15,10 @@ Drawer endMobileDrawer() {
               shape: BoxShape.circle,
               border: Border.all(color: Colors.black, width: 2.0),
             ),
-            child: Image.asset('assets/cropped_circle_image.png'),
+            child: Image.asset(
+              'assets/cropped_circle_image.png',
+              filterQuality: FilterQuality.high,
+            ),
           ),
           padding: EdgeInsets.only(bottom: 20.0),
         ),

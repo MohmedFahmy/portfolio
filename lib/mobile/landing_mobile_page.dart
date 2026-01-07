@@ -30,22 +30,25 @@ class _LandingMobilePageState extends State<LandingMobilePage> {
         children: [
           // the First Section intro
           Padding(
-            padding: const EdgeInsets.only(left: 20.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 50.0),
-                CircleAvatar(
-                  radius: 119.0,
-                  backgroundColor: Colors.tealAccent,
+                Center(
                   child: CircleAvatar(
-                    radius: 114.0,
-                    backgroundColor: Colors.black,
+                    radius: 119.0,
+                    backgroundColor: Colors.tealAccent,
                     child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 112.0,
-                      backgroundImage: AssetImage(
-                        'assets/cropped_circle_image.png',
+                      radius: 114.0,
+                      backgroundColor: Colors.black,
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 112.0,
+                        backgroundImage: AssetImage(
+                          'assets/cropped_circle_image.png',
+                        ),
                       ),
                     ),
                   ),
@@ -87,7 +90,7 @@ class _LandingMobilePageState extends State<LandingMobilePage> {
                 ),
                 SizedBox(height: 20.0),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Wrap(
                       direction: Axis.vertical,
@@ -129,9 +132,9 @@ class _LandingMobilePageState extends State<LandingMobilePage> {
           // the second Section about me
           SizedBox(height: 120.0),
           Padding(
-            padding: EdgeInsets.only(left: 20.0),
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SansText(
@@ -219,9 +222,9 @@ class _LandingMobilePageState extends State<LandingMobilePage> {
                 fontSize: 35.0,
                 fontWeight: FontWeight.bold,
               ),
-              SizedBox(height: 12.0),
+              SizedBox(height: 40.0),
               SkillsCarousel(),
-              SizedBox(height: 60.0),
+              SizedBox(height: 80.0),
               // contacts section
               Wrap(
                 runSpacing: 20.0,
