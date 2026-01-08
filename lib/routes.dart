@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/mobile/about_mobile.dart';
+import 'package:portfolio/mobile/blog_mobile.dart';
 import 'package:portfolio/mobile/contact_mobile.dart';
 import 'package:portfolio/mobile/landing_mobile_page.dart';
 import 'package:portfolio/web/about_web.dart';
+import 'package:portfolio/web/blog_web.dart';
 import 'package:portfolio/web/contact_web.dart';
 import 'package:portfolio/web/landing_web_page.dart';
 
@@ -27,9 +29,9 @@ class Routes {
           builder: (_) => LayoutBuilder(
             builder: (context, constraints) {
               if (constraints.maxWidth > 800) {
-                return  ContactWeb();
+                return ContactWeb();
               } else {
-                return  ContactMobile();
+                return ContactMobile();
               }
             },
           ),
@@ -40,9 +42,22 @@ class Routes {
           builder: (_) => LayoutBuilder(
             builder: (context, constraints) {
               if (constraints.maxWidth > 800) {
-                return  AboutWeb();
+                return AboutWeb();
               } else {
-                return  AboutMobile();
+                return AboutMobile();
+              }
+            },
+          ),
+          settings: settings,
+        );
+      case '/blog':
+        return MaterialPageRoute(
+          builder: (_) => LayoutBuilder(
+            builder: (context, constraints) {
+              if (constraints.maxWidth > 800) {
+                return BlogWeb();
+              } else {
+                return BlogMobile();
               }
             },
           ),
