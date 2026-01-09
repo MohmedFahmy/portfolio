@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/web/widgets/text_widgets.dart';
 import 'package:portfolio/web/widgets/web_drawer.dart';
+import 'package:portfolio/web/widgets/work_widget.dart';
 
 import '../components.dart';
 
@@ -49,7 +51,30 @@ class _WorksWebState extends State<WorksWeb> {
             ),
           ];
         },
-        body: ListView(),
+        body: ListView(
+          children: [
+            Column(
+              children: [
+                SizedBox(height: 50.0),
+                SansText(
+                  text: 'Works',
+                  fontSize: 40.0,
+                  fontWeight: FontWeight.bold,
+                ),
+                SizedBox(height: 40.0),
+                WorkCardWidget(
+                  title: 'Portfolio',
+                  imagePath: '/portfolio.png',
+                  description:
+                      'A professional portfolio showcasing real-world projects and skills. '
+                      'Developed with Flutter for Web, Android, and iOS. '
+                      'Focused on performance, clean architecture, and modern UI. ',
+                  githubUrl: 'https://github.com/username/portfolio',
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
