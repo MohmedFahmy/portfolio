@@ -28,7 +28,7 @@ class _AboutWebState extends State<AboutWeb> {
             const Spacer(),
             TabsWeb(title: 'About', route: '/about'),
             const Spacer(),
-            TabsWeb(title: 'Work', route: '/work'),
+            TabsWeb(title: 'Works', route: '/work'),
             const Spacer(),
             TabsWeb(title: 'Blog', route: '/blog'),
             const Spacer(),

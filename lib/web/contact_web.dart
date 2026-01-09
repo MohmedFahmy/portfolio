@@ -23,7 +23,7 @@ class _ContactWebState extends State<ContactWeb> {
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
             SliverAppBar(
-              expandedHeight: 400.0,
+              expandedHeight: 500.0,
               backgroundColor: Colors.white,
               iconTheme: IconThemeData(color: Colors.black, size: 25),
               flexibleSpace: FlexibleSpaceBar(
@@ -40,7 +40,7 @@ class _ContactWebState extends State<ContactWeb> {
                   const Spacer(),
                   TabsWeb(title: 'About', route: '/about'),
                   const Spacer(),
-                  TabsWeb(title: 'Work', route: '/work'),
+                  TabsWeb(title: 'Works', route: '/work'),
                   const Spacer(),
                   TabsWeb(title: 'Blog', route: '/blog'),
                   const Spacer(),
