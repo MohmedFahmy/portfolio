@@ -71,7 +71,7 @@ class WorkCardWidget extends StatelessWidget {
                   softWrap: false,
                   overflow: TextOverflow.visible,
                   style: const TextStyle(
-                    fontSize: 22,
+                    fontSize: 30.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -87,9 +87,9 @@ class WorkCardWidget extends StatelessWidget {
                       softWrap: false,
                       overflow: TextOverflow.visible,
                       style: const TextStyle(
-                        fontSize: 15,
+                        fontSize: 16.0,
                         fontWeight: FontWeight.normal,
-                        height: 1.4,
+                        height: 1.2,
                       ),
                     ),
                   ),

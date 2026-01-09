@@ -26,7 +26,7 @@ Drawer endMobileDrawer() {
         SizedBox(height: 20.0),
         TabsMobil(title: 'About Me', route: '/about'),
         SizedBox(height: 20.0),
-        TabsMobil(title: 'Works', route: '/works'),
+        TabsMobil(title: 'Works', route: '/work'),
         SizedBox(height: 20.0),
         TabsMobil(title: 'Blog', route: '/blog'),
         SizedBox(height: 20.0),

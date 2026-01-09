@@ -69,7 +69,7 @@ class _WorksWebState extends State<WorksWeb> {
                       'A professional portfolio showcasing real-world projects and skills. '
                       'Developed with Flutter for Web, Android, and iOS. '
                       'Focused on performance, clean architecture, and modern UI. ',
-                  githubUrl: 'https://github.com/username/portfolio',
+                  githubUrl: 'https://github.com/MohmedFahmy/portfolio.git',
                 ),
               ],
             ),
