@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/mobile/widget/end_drawer_mobile.dart';
+import 'package:portfolio/mobile/widget/services_widget.dart';
 
 import '../web/widgets/skill_widget.dart';
 import '../web/widgets/text_widgets.dart';
-import 'widget/skills_slider.dart';
 
 class AboutMobile extends StatefulWidget {
   const AboutMobile({super.key});
@@ -156,7 +156,7 @@ class _AboutMobileState extends State<AboutMobile> {
                   ],
                 ),
               ),
-              SizedBox(height: 40.0),
+              SizedBox(height: 50.0),
               // development second section
               Padding(
                 padding: const EdgeInsets.symmetric(
@@ -169,10 +169,48 @@ class _AboutMobileState extends State<AboutMobile> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-
+              SizedBox(height: 30.0),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [SkillsCarousel()],
+                children: [
+                  ServiceSection(
+                    title: 'Web development',
+                    imagePath: 'assets/webl.png',
+                    descriptions: [
+                      'Developing responsive web interfaces with Flutter Web.',
+                      'Focused on clean layouts and scalable UI design.',
+                      'Optimized for performance and cross-browser compatibility.',
+                      'Delivering modern web experiences with consistent user flow.',
+                    ],
+                  ),
+                  SizedBox(height: 25.0),
+                  Divider(color: Colors.grey, thickness: 1.5),
+                  SizedBox(height: 45.0),
+                  ServiceSection(
+                    title: 'App development',
+                    imagePath: 'assets/app.png',
+                    imageFirst: false,
+                    descriptions: [
+                      'Building high-quality cross-platform mobile applications using Flutter.',
+                      'Focused on smooth performance and clean app architecture.',
+                      'Creating intuitive user experiences with modern UI patterns.',
+                      'Delivering scalable and maintainable mobile solutions.',
+                    ],
+                  ),
+                  SizedBox(height: 25.0),
+                  Divider(color: Colors.grey, thickness: 1.5),
+                  SizedBox(height: 45.0),
+                  ServiceSection(
+                    title: 'Backend development',
+                    imagePath: 'assets/backend.png',
+                    descriptions: [
+                      'Developing scalable back-end services using Node.js and MongoDB.',
+                      'Designing RESTful APIs with clean and maintainable structure.',
+                      'Handling authentication, data validation, and business logic.',
+                      'Focused on performance, security, and database efficiency.',
+                    ],
+                  ),
+                ],
               ),
               SizedBox(height: 100.0),
             ],
