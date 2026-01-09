@@ -175,7 +175,7 @@ class _AboutMobileState extends State<AboutMobile> {
                 children: [
                   ServiceSection(
                     title: 'Web development',
-                    imagePath: 'assets/webl.png',
+                    imagePath: 'assets/webL.png',
                     descriptions: [
                       'Developing responsive web interfaces with Flutter Web.',
                       'Focused on clean layouts and scalable UI design.',
