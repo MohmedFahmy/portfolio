@@ -136,7 +136,7 @@ class _LandingWebPageState extends State<LandingWebPage> {
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 15.0),
                     SansText(
                       text:
                           'Flutter developer specializing in cross-platform mobile applications.',
