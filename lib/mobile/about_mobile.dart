@@ -79,65 +79,77 @@ class _AboutMobileState extends State<AboutMobile> {
                       fontWeight: FontWeight.normal,
                     ),
                     SizedBox(height: 20.0),
-                    Wrap(
-                      spacing: 10.0,
-                      runSpacing: 7.0,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          children: [
-                            SkillWidget(
-                              skill: 'Flutter',
-                              color: Colors.tealAccent,
-                            ),
-                            SizedBox(width: 10),
-                            SkillWidget(
-                              skill: 'Android',
-                              color: Colors.greenAccent,
-                            ),
-                            SizedBox(width: 10),
-                            SkillWidget(
-                              skill: 'iOS',
-                              color: Colors.orangeAccent,
-                            ),
-                            SizedBox(width: 10),
-                            SkillWidget(
-                              skill: 'Dart',
-                              color: Colors.blueAccent,
-                            ),
-                          ],
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              SkillWidget(
+                                skill: 'Flutter',
+                                color: Colors.tealAccent,
+                              ),
+                              const SizedBox(width: 10),
+                              SkillWidget(
+                                skill: 'Android',
+                                color: Colors.greenAccent,
+                              ),
+                              const SizedBox(width: 10),
+                              SkillWidget(
+                                skill: 'iOS',
+                                color: Colors.orangeAccent,
+                              ),
+                              const SizedBox(width: 10),
+                              SkillWidget(
+                                skill: 'Dart',
+                                color: Colors.blueAccent,
+                              ),
+                            ],
+                          ),
                         ),
 
-                        Row(
-                          children: [
-                            SkillWidget(
-                              skill: 'Git',
-                              color: Colors.purpleAccent,
-                            ),
-                            SizedBox(width: 10),
-                            SkillWidget(
-                              skill: 'REST API',
-                              color: Colors.redAccent,
-                            ),
-                            SizedBox(width: 10),
-                            SkillWidget(
-                              skill: 'State Management',
-                              color: Colors.indigoAccent,
-                            ),
-                          ],
+                        const SizedBox(height: 8),
+
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              SkillWidget(
+                                skill: 'Git',
+                                color: Colors.purpleAccent,
+                              ),
+                              const SizedBox(width: 10),
+                              SkillWidget(
+                                skill: 'REST API',
+                                color: Colors.redAccent,
+                              ),
+                              const SizedBox(width: 10),
+                              SkillWidget(
+                                skill: 'State Management',
+                                color: Colors.indigoAccent,
+                              ),
+                            ],
+                          ),
                         ),
 
-                        Row(
-                          children: [
-                            SkillWidget(
-                              skill: 'Firebase',
-                              color: Colors.orangeAccent,
-                            ),
-                            SizedBox(width: 10),
-                            SkillWidget(
-                              skill: 'Supabase',
-                              color: Colors.lightGreen,
-                            ),
-                          ],
+                        const SizedBox(height: 8),
+
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              SkillWidget(
+                                skill: 'Firebase',
+                                color: Colors.orangeAccent,
+                              ),
+                              const SizedBox(width: 10),
+                              SkillWidget(
+                                skill: 'Supabase',
+                                color: Colors.lightGreen,
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),

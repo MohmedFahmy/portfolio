@@ -15,7 +15,6 @@ class WorksWeb extends StatefulWidget {
 class _WorksWebState extends State<WorksWeb> {
   @override
   Widget build(BuildContext context) {
-    var deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       drawer: webDrawer(),
       backgroundColor: Colors.white,

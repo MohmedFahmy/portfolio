@@ -28,7 +28,7 @@ class _ContactMobileState extends State<ContactMobile> {
               iconTheme: IconThemeData(color: Colors.black, size: 35.0),
               flexibleSpace: FlexibleSpaceBar(
                 background: Image.asset(
-                  '/contact_image.jpg',
+                  'assets/contact_image.jpg',
                   fit: BoxFit.cover,
                   filterQuality: FilterQuality.high,
                 ),

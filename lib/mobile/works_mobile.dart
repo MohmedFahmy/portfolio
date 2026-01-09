@@ -27,7 +27,7 @@ class _WorksMobileState extends State<WorksMobile> {
               iconTheme: IconThemeData(color: Colors.black, size: 35.0),
               flexibleSpace: FlexibleSpaceBar(
                 background: Image.asset(
-                  '/works.jpg',
+                  'assets/works.jpg',
                   fit: BoxFit.cover,
                   filterQuality: FilterQuality.high,
                 ),
@@ -49,7 +49,7 @@ class _WorksMobileState extends State<WorksMobile> {
                 SizedBox(height: 40.0),
                 WorkMobileWidget(
                   title: 'Portfolio',
-                  imagePath: '/portfolio.png',
+                  imagePath: 'assets/portfolio.png',
                   description:
                       'A professional portfolio showcasing real-world projects and skills. '
                       'Developed with Flutter for Web, Android, and iOS. '

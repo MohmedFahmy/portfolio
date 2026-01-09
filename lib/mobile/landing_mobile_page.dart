@@ -183,9 +183,9 @@ class _LandingMobilePageState extends State<LandingMobilePage> {
                     Row(
                       children: [
                         SkillWidget(skill: 'Git', color: Colors.purpleAccent),
-                        SizedBox(width: 10),
+                        SizedBox(width: 6.0),
                         SkillWidget(skill: 'REST API', color: Colors.redAccent),
-                        SizedBox(width: 10),
+                        SizedBox(width: 6.0),
                         SkillWidget(
                           skill: 'State Management',
                           color: Colors.indigoAccent,
