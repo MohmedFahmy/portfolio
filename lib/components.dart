@@ -77,3 +77,30 @@ class _TabsMobilState extends State<TabsMobil> {
     );
   }
 }
+
+// Blog Web and Mobile  text widget
+class AbleCustomText extends StatelessWidget {
+  const AbleCustomText({
+    super.key,
+    required this.text,
+    required this.size,
+    required this.color,
+    required this.fontWeight,
+  });
+  final String text;
+  final double size;
+  final Color color;
+  final FontWeight fontWeight;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: GoogleFonts.abel(
+        fontSize: size,
+        color: color,
+        fontWeight: fontWeight,
+      ),
+    );
+  }
+}
