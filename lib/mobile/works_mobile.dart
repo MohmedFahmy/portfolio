@@ -54,6 +54,7 @@ class _WorksMobileState extends State<WorksMobile> {
                     description:
                         'A professional portfolio showcasing real-world projects and skills. '
                         'Developed with Flutter for Web, Android, and iOS. '
+                        'Use Firebase for cloud firestore database and storage. '
                         'Focused on performance, clean architecture, and modern UI. ',
                     githubUrl: 'https://github.com/MohmedFahmy/portfolio.git',
                   ),
