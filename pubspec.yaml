@@ -40,6 +40,8 @@ dependencies:
   url_strategy: ^0.3.0
   carousel_slider: ^5.1.1
   cloud_firestore: ^6.1.1
+  firebase_core: ^4.3.0
+  foundation: ^0.0.5
 
 dev_dependencies:
   flutter_test:
