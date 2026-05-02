@@ -56,7 +56,7 @@ class _BlogWebState extends State<BlogWeb> {
                     ),
                   ),
                   background: Image.asset(
-                    'assets/blog.jpg',
+                    'assets/main.jpeg',
                     fit: BoxFit.cover,
                     filterQuality: FilterQuality.high,
                   ),

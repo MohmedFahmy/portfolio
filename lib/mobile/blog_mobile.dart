@@ -50,7 +50,7 @@ class _BlogMobileState extends State<BlogMobile> {
                     ),
                   ),
                   background: Image.asset(
-                    'assets/blog.jpg',
+                    'assets/main.jpeg',
                     fit: BoxFit.cover,
                     filterQuality: FilterQuality.high,
                   ),
