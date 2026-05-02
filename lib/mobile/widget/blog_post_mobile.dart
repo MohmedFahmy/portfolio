@@ -39,7 +39,7 @@ class _BlogPostMobileState extends State<BlogPostMobile> {
                     borderRadius: BorderRadius.circular(4.0),
                   ),
                   child: AbleCustomText(
-                    text: widget.title,
+                    text: widget.title.toString(),
                     size: 25.0,
                     color: Colors.white,
                     fontWeight: FontWeight.normal,
@@ -62,7 +62,7 @@ class _BlogPostMobileState extends State<BlogPostMobile> {
             ),
             SizedBox(height: 12.0),
             Text(
-              widget.content,
+              widget.content.toString(),
               style: GoogleFonts.openSans(fontSize: 15.0),
               maxLines: isExpand ? null : 3,
               overflow: isExpand ? TextOverflow.visible : TextOverflow.ellipsis,

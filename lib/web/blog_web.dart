@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/web/widgets/blog_post_web.dart';
 import 'package:portfolio/web/widgets/web_drawer.dart';
@@ -12,6 +13,21 @@ class BlogWeb extends StatefulWidget {
 }
 
 class _BlogWebState extends State<BlogWeb> {
+  void streamArticles() async {
+    await for (var snapshot
+        in FirebaseFirestore.instance.collection('articles').snapshots()) {
+      for (var title in snapshot.docs) {
+        print(title.data()['title']);
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    streamArticles();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -46,42 +62,29 @@ class _BlogWebState extends State<BlogWeb> {
                   ),
                 ),
                 expandedHeight: 500.0,
-                // title: Row(
-                //   children: [
-                //     const Spacer(flex: 3),
-                //     TabsWeb(title: 'Home', route: '/'),
-                //     const Spacer(),
-                //     TabsWeb(title: 'About', route: '/about'),
-                //     const Spacer(),
-                //     TabsWeb(title: 'Work', route: '/work'),
-                //     const Spacer(),
-                //     TabsWeb(title: 'Blog', route: '/blog'),
-                //     const Spacer(),
-                //     TabsWeb(title: 'Contact', route: '/contact'),
-                //     const Spacer(),
-                //   ],
-                // ),
               ),
             ];
           },
-          body: ListView(
-            children: [
-              BlogPostWeb(
-                title: 'Who is Lorem Ipsum',
-                content:
-                    'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-              ),
-              BlogPostWeb(
-                title: 'The History of Lorem Ipsum',
-                content:
-                    'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-              ),
-              BlogPostWeb(
-                title: 'Why do we use Lorem Ipsum',
-                content:
-                    'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-              ),
-            ],
+          body: StreamBuilder<QuerySnapshot>(
+            stream: FirebaseFirestore.instance
+                .collection('articles')
+                .snapshots(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return ListView.builder(
+                  itemCount: snapshot.data!.docs.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    DocumentSnapshot doc = snapshot.data!.docs[index];
+                    return BlogPostWeb(
+                      title: doc['title'],
+                      content: doc['body'],
+                    );
+                  },
+                );
+              } else {
+                return const Center(child: CircularProgressIndicator());
+              }
+            },
           ),
         ),
       ),
