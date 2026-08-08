@@ -12,15 +12,21 @@ class BlogMobile extends StatefulWidget {
 }
 
 class _BlogMobileState extends State<BlogMobile> {
-  void streamArticles() async {
-    await for (var snapshot
-        in FirebaseFirestore.instance.collection('articles').snapshots()) {
-      for (var title in snapshot.docs) {
-        print(title.data()['title']);
-      }
-    }
-  }
+  // void streamArticles() async {
+  //   var logger = Logger();
+  //   await for (var snapshot
+  //       in FirebaseFirestore.instance.collection('articles').snapshots()) {
+  //     for (var title in snapshot.docs) {
+  //       logger.d(title.data()['title']);
+  //     }
+  //   }
+  // }
 
+  @override
+  // void initState() {
+  //   super.initState();
+  //   streamArticles();
+  // }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -50,7 +56,7 @@ class _BlogMobileState extends State<BlogMobile> {
                     ),
                   ),
                   background: Image.asset(
-                    'assets/main.jpeg',
+                    '/blog3.jpg',
                     fit: BoxFit.cover,
                     filterQuality: FilterQuality.high,
                   ),
