@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/input_form_filed_widget.dart';
 import 'package:portfolio/mobile/widget/end_drawer_mobile.dart';
-import 'package:portfolio/web/widgets/input_form_filed_widget.dart';
 import 'package:portfolio/web/widgets/text_widgets.dart';
 
-import '../web/widgets/skill_widget.dart';
-import 'widget/skills_slider.dart';
+import '../../components.dart';
+import '../../web/widgets/skill_widget.dart';
+import '../widget/skills_slider.dart';
 
 class LandingMobilePage extends StatefulWidget {
   const LandingMobilePage({super.key});
@@ -14,6 +15,12 @@ class LandingMobilePage extends StatefulWidget {
 }
 
 class _LandingMobilePageState extends State<LandingMobilePage> {
+  final TextEditingController _firstNameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _messageController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     var deviceWidth = MediaQuery.of(context).size.width;
@@ -222,81 +229,127 @@ class _LandingMobilePageState extends State<LandingMobilePage> {
 
             //the Third Section What i do & Contact me
             SizedBox(height: 100.0),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SansText(
-                  text: 'What I do',
-                  fontSize: 35.0,
-                  fontWeight: FontWeight.bold,
-                ),
-                SizedBox(height: 40.0),
-                SkillsCarousel(),
-                SizedBox(height: 80.0),
-                // contacts section
-                Wrap(
-                  runSpacing: 20.0,
-                  spacing: 20.0,
-                  alignment: WrapAlignment.center,
-                  children: [
-                    SansText(
-                      text: 'Contact me',
-                      fontSize: 35.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    InputFormFiledWidget(
-                      heading: 'First name',
-                      hintText: 'Please enter your first name',
-                      maxLines: 1,
-                      width: deviceWidth / 1.4,
-                    ),
-                    SizedBox(height: 15),
-                    InputFormFiledWidget(
-                      heading: 'Last name',
-                      hintText: 'please enter your last name',
-                      maxLines: 1,
-                      width: deviceWidth / 1.4,
-                    ),
-                    SizedBox(height: 15),
-                    InputFormFiledWidget(
-                      heading: 'Email',
-                      hintText: 'Please enter your email address',
-                      maxLines: 1,
-                      width: deviceWidth / 1.4,
-                    ),
-                    SizedBox(height: 15),
-                    InputFormFiledWidget(
-                      heading: 'Phone number',
-                      hintText: 'Please enter your phone number',
-                      maxLines: 1,
-                      width: deviceWidth / 1.4,
-                    ),
-                    SizedBox(height: 15),
-                    InputFormFiledWidget(
-                      heading: 'Message',
-                      hintText: 'Please enter your message',
-                      maxLines: 10,
-                      width: deviceWidth / 1.4,
-                    ),
-                    MaterialButton(
-                      onPressed: () {},
-                      height: 60,
-                      minWidth: deviceWidth / 2.2,
-                      elevation: 20.0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      color: Colors.tealAccent,
-                      child: SansText(
-                        text: 'Submit',
-                        fontSize: 20,
+            Form(
+              key: formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SansText(
+                    text: 'What I do',
+                    fontSize: 35.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  SizedBox(height: 40.0),
+                  SkillsCarousel(),
+                  SizedBox(height: 80.0),
+                  // contacts section
+                  Wrap(
+                    runSpacing: 20.0,
+                    spacing: 20.0,
+                    alignment: WrapAlignment.center,
+                    children: [
+                      SansText(
+                        text: 'Contact me',
+                        fontSize: 35.0,
                         fontWeight: FontWeight.bold,
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 30.0),
-              ],
+                      InputFormFiledWidget(
+                        heading: 'First name',
+                        hintText: 'Please enter your first name',
+                        maxLines: 1,
+                        width: deviceWidth / 1.4,
+                        controller: _firstNameController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'First name is required';
+                          }
+                        },
+                      ),
+                      SizedBox(height: 15),
+                      InputFormFiledWidget(
+                        heading: 'Last name',
+                        hintText: 'please enter your last name',
+                        maxLines: 1,
+                        width: deviceWidth / 1.4,
+                        controller: _lastNameController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Last name is required';
+                          }
+                        },
+                      ),
+                      SizedBox(height: 15),
+                      InputFormFiledWidget(
+                        heading: 'Email',
+                        hintText: 'Please enter your email address',
+                        maxLines: 1,
+                        width: deviceWidth / 1.4,
+                        controller: _emailController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Email is required';
+                          }
+                        },
+                      ),
+                      SizedBox(height: 15),
+                      InputFormFiledWidget(
+                        heading: 'Phone number',
+                        hintText: 'Please enter your phone number',
+                        maxLines: 1,
+                        width: deviceWidth / 1.4,
+                        controller: _phoneController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Phone number is required';
+                          }
+                        },
+                      ),
+                      SizedBox(height: 15),
+                      InputFormFiledWidget(
+                        heading: 'Message',
+                        hintText: 'Please enter your message',
+                        maxLines: 10,
+                        width: deviceWidth / 1.4,
+                        controller: _messageController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Message is required';
+                          }
+                        },
+                      ),
+                      MaterialButton(
+                        onPressed: () async {
+                          final addData = AddDataFirestore();
+                          if (formKey.currentState!.validate()) {
+                            await addData.addResponse(
+                              firstName: _firstNameController.text,
+                              lastName: _lastNameController.text,
+                              email: _emailController.text,
+                              phone: _phoneController.text,
+                              message: _messageController.text,
+                            );
+                            formKey.currentState!.reset();
+                            customShowDialog(context);
+                          }
+                        },
+                        height: 60,
+                        minWidth: deviceWidth / 2.2,
+                        elevation: 20.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        color: Colors.tealAccent,
+                        child: SansText(
+                          text: 'Submit',
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 30.0),
+                ],
+              ),
             ),
           ],
         ),

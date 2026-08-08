@@ -3,10 +3,10 @@ import 'package:portfolio/components.dart';
 import 'package:portfolio/web/widgets/text_widgets.dart';
 import 'package:portfolio/web/widgets/web_drawer.dart';
 
-import 'widgets/icon_text_widget.dart';
-import 'widgets/input_form_filed_widget.dart';
-import 'widgets/skill_widget.dart';
-import 'widgets/what_i_do_widget.dart';
+import '../../input_form_filed_widget.dart';
+import '../widgets/icon_text_widget.dart';
+import '../widgets/skill_widget.dart';
+import '../widgets/what_i_do_widget.dart';
 
 class LandingWebPage extends StatefulWidget {
   const LandingWebPage({super.key});
@@ -16,6 +16,12 @@ class LandingWebPage extends StatefulWidget {
 }
 
 class _LandingWebPageState extends State<LandingWebPage> {
+  final TextEditingController _firstNameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _messageController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     var hightDevice = MediaQuery.of(context).size.height;
@@ -258,75 +264,121 @@ class _LandingWebPageState extends State<LandingWebPage> {
           // the Fourth Section
           Container(
             height: hightDevice,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SansText(
-                  text: 'Contact me',
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Column(
-                      children: [
-                        InputFormFiledWidget(
-                          heading: 'First name',
-                          hintText: 'Please enter your first name',
-                          maxLines: 1,
-                          width: 350,
-                        ),
-                        SizedBox(height: 15),
-                        InputFormFiledWidget(
-                          heading: 'Email',
-                          hintText: 'Please enter your email address',
-                          maxLines: 1,
-                          width: 350,
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        InputFormFiledWidget(
-                          heading: 'Last name',
-                          hintText: 'please enter your last name',
-                          maxLines: 1,
-                          width: 350,
-                        ),
-                        SizedBox(height: 15),
-                        InputFormFiledWidget(
-                          heading: 'Phone number',
-                          hintText: 'Please enter your phone number',
-                          maxLines: 1,
-                          width: 350,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                InputFormFiledWidget(
-                  heading: 'Message',
-                  hintText: 'Please enter your message',
-                  maxLines: 10,
-                  width: widthDevice / 1.5,
-                ),
-                MaterialButton(
-                  onPressed: () {},
-                  height: 60,
-                  minWidth: 200,
-                  elevation: 20.0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  color: Colors.tealAccent,
-                  child: SansText(
-                    text: 'Submit',
-                    fontSize: 20,
+            child: Form(
+              key: formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SansText(
+                    text: 'Contact me',
+                    fontSize: 40,
                     fontWeight: FontWeight.bold,
                   ),
-                ),
-              ],
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        children: [
+                          InputFormFiledWidget(
+                            controller: _firstNameController,
+                            heading: 'First name',
+                            hintText: 'Please enter your first name',
+                            maxLines: 1,
+                            width: 350,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your first name';
+                              }
+                            },
+                          ),
+                          SizedBox(height: 15),
+                          InputFormFiledWidget(
+                            controller: _emailController,
+                            heading: 'Email',
+                            hintText: 'Please enter your email address',
+                            maxLines: 1,
+                            width: 350,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your email address';
+                              }
+                            },
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          InputFormFiledWidget(
+                            controller: _lastNameController,
+                            heading: 'Last name',
+                            hintText: 'please enter your last name',
+                            maxLines: 1,
+                            width: 350,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your last name';
+                              }
+                            },
+                          ),
+                          SizedBox(height: 15),
+                          InputFormFiledWidget(
+                            controller: _phoneController,
+                            heading: 'Phone number',
+                            hintText: 'Please enter your phone number',
+                            maxLines: 1,
+                            width: 350,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your phone number';
+                              }
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  InputFormFiledWidget(
+                    controller: _messageController,
+                    heading: 'Message',
+                    hintText: 'Please enter your message',
+                    maxLines: 10,
+                    width: widthDevice / 1.5,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your message';
+                      }
+                    },
+                  ),
+                  MaterialButton(
+                    onPressed: () async {
+                      final addData = AddDataFirestore();
+                      if (formKey.currentState!.validate()) {
+                        await addData.addResponse(
+                          firstName: _firstNameController.text,
+                          lastName: _lastNameController.text,
+                          email: _emailController.text,
+                          phone: _phoneController.text,
+                          message: _messageController.text,
+                        );
+                        formKey.currentState!.reset();
+                        customShowDialog(context);
+                      }
+                    },
+                    height: 60,
+                    minWidth: 200,
+                    elevation: 20.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    color: Colors.tealAccent,
+                    child: SansText(
+                      text: 'Submit',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           SizedBox(height: 30.0),

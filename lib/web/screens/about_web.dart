@@ -3,7 +3,7 @@ import 'package:portfolio/web/widgets/skill_widget.dart';
 import 'package:portfolio/web/widgets/text_widgets.dart';
 import 'package:portfolio/web/widgets/web_drawer.dart';
 
-import '../components.dart';
+import '../../components.dart';
 
 class AboutWeb extends StatefulWidget {
   const AboutWeb({super.key});

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -103,4 +104,52 @@ class AbleCustomText extends StatelessWidget {
       ),
     );
   }
+}
+
+class AddDataFirestore {
+  CollectionReference responses = FirebaseFirestore.instance.collection(
+    'messages',
+  );
+  Future<void> addResponse({
+    required String firstName,
+    required String lastName,
+    required String email,
+    required String phone,
+    required String message,
+  }) {
+    return responses
+        .add({
+          'first name': firstName,
+          'last name': lastName,
+          'email': email,
+          'phone': phone,
+          'message': message,
+          'timestamp': FieldValue.serverTimestamp(),
+        })
+        .then((value) => print('Response added'))
+        .catchError((error) => print('Failed to add response: $error'));
+  }
+}
+
+Future<dynamic> customShowDialog(BuildContext context) {
+  return showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+        title: Text('Success'),
+        content: Text('Your message has been sent.'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text('OK'),
+          ),
+        ],
+      );
+    },
+  );
 }

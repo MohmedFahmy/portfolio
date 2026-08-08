@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/web/widgets/blog_post_web.dart';
 import 'package:portfolio/web/widgets/web_drawer.dart';
 
-import '../components.dart';
+import '../../components.dart';
 
 class BlogWeb extends StatefulWidget {
   const BlogWeb({super.key});

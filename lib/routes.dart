@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/mobile/about_mobile.dart';
-import 'package:portfolio/mobile/blog_mobile.dart';
-import 'package:portfolio/mobile/contact_mobile.dart';
-import 'package:portfolio/mobile/landing_mobile_page.dart';
+import 'package:portfolio/mobile/screens/about_mobile.dart';
+import 'package:portfolio/mobile/screens/blog_mobile.dart';
+import 'package:portfolio/mobile/screens/contact_mobile.dart';
+import 'package:portfolio/mobile/screens/landing_mobile_page.dart';
 import 'package:portfolio/mobile/works_mobile.dart';
-import 'package:portfolio/web/about_web.dart';
-import 'package:portfolio/web/blog_web.dart';
-import 'package:portfolio/web/contact_web.dart';
-import 'package:portfolio/web/landing_web_page.dart';
-import 'package:portfolio/web/works_web.dart';
+import 'package:portfolio/web/screens/about_web.dart';
+import 'package:portfolio/web/screens/blog_web.dart';
+import 'package:portfolio/web/screens/contact_web.dart';
+import 'package:portfolio/web/screens/landing_web_page.dart';
+import 'package:portfolio/web/screens/works_web.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {

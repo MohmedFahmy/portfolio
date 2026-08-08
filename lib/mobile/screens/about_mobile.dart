@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/mobile/widget/end_drawer_mobile.dart';
 import 'package:portfolio/mobile/widget/services_widget.dart';
 
-import '../web/widgets/skill_widget.dart';
-import '../web/widgets/text_widgets.dart';
+import '../../web/widgets/skill_widget.dart';
+import '../../web/widgets/text_widgets.dart';
 
 class AboutMobile extends StatefulWidget {
   const AboutMobile({super.key});

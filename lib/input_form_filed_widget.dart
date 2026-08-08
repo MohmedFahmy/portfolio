@@ -9,11 +9,15 @@ class InputFormFiledWidget extends StatelessWidget {
     required this.hintText,
     required this.maxLines,
     required this.width,
+    this.controller,
+    this.validator,
   });
   final String heading;
   final String hintText;
   final int maxLines;
   final double width;
+  final controller;
+  final validator;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,6 +28,9 @@ class InputFormFiledWidget extends StatelessWidget {
         SizedBox(
           width: width,
           child: TextFormField(
+            validator: validator,
+            controller: controller,
+
             // inputFormatters: [
             //   LengthLimitingTextInputFormatter(200),
             //   FilteringTextInputFormatter.allow(RegExp('[a-zA-Z]')),
@@ -38,12 +45,16 @@ class InputFormFiledWidget extends StatelessWidget {
             // },
             maxLines: maxLines,
             decoration: InputDecoration(
+              errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(color: Colors.red),
+              ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide(color: Colors.teal),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(15),
                 borderSide: BorderSide(color: Colors.tealAccent, width: 2.0),
               ),
               focusedErrorBorder: OutlineInputBorder(
